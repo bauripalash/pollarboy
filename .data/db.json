@@ -1,0 +1,56 @@
+{
+  "polllist": [],
+  "polls": [
+    {
+      "slug": "mango",
+      "title": "Do you like mango",
+      "total": 0,
+      "options": [
+        {
+          "slug": "yes",
+          "name": "yes",
+          "count": 2
+        },
+        {
+          "slug": "no",
+          "name": "no",
+          "count": 0
+        }
+      ]
+    },
+    {
+      "slug": "catdog",
+      "title": "Cat or Dog?",
+      "total": 0,
+      "options": [
+        {
+          "slug": "Cat!",
+          "name": "Cat!",
+          "count": 5
+        },
+        {
+          "slug": "Dog!",
+          "name": "Dog!",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "slug": "liveonmars",
+      "title": "Wanna Live On Mars?",
+      "total": 0,
+      "options": [
+        {
+          "slug": "oh-yeah",
+          "name": "Oh Yeah!",
+          "count": 4
+        },
+        {
+          "slug": "nah",
+          "name": "Nah!",
+          "count": 2
+        }
+      ]
+    }
+  ]
+}

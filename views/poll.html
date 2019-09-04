@@ -1,0 +1,44 @@
+{% extends "layouts/default.html" %}
+
+{% block title %} {{ poll.title }} {% endblock %}
+
+{% block content %}
+
+<div class="main">
+    <header>
+        <h1 class="h1"><a href="#"> {{ poll.title }} </a></h1>
+    </header>
+    <div>
+        <p style="color:red"> {{ msg }} </p>
+    </div>
+
+    <div>
+
+        <h3>Vote Here : </h3>
+        <div class="vote-item">
+                {% for op in poll.options %}
+                <a class="button poll-item" href="/p/{{ poll.slug }}/v/{{ op.slug }}">{{ op.name }}</a>
+                {% endfor %}
+        </div>
+
+    </div>
+    <h4> <a href="/p/{{poll.slug}}/result/"> 💥 Result 💥 </a>  </h4>
+
+    <a href="/maker"> &leftarrow; Create Poll </a>
+    <br><br>
+
+    {% include "partials/foot.html" %}
+</div>
+
+
+<!-- <br><br> -->
+
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+
+</script>
+
+{% endblock %}

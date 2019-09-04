@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+    margin: 2em;
+    margin: auto;
+    text-align: center;
+    background: whitesmoke;
+  }
+  
+  h1,
+  .h1 {
+    color: #102E87;
+  
+  }
+  
+  .h1 a {
+    color: #102E87;
+    text-decoration: none
+  }
+  
+  .h1 a:visited {
+    color: #102E87;
+    text-decoration: none
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  p {
+    max-width: 600px;
+  }
+  
+  form,
+  .form {
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: #1337a5;
+    border: 1px solid #d6d6d6;
+    box-shadow: 3px 3px 0px #bababa;
+    display: inline-block;
+    width: 98%;
+    max-width: 450px;
+  }
+
+  #slug-preview {
+      color: whitesmoke;
+  }
+  
+  .main {
+    margin-bottom: 25px;
+    padding: 0px 10px 5px 10px;
+    margin: 8px auto 8px;
+    border: 2px solid #0e2877;
+    box-shadow: 5px 6px 0px #0e2877;
+    width: 95%;
+    max-width: 600px;
+  }
+
+  .sample-poll-list , .vote-item{
+    margin: 30px;
+    border: 2px solid skyblue;
+  }
+
+  .sample-poll-list ul li{
+      list-style: none;
+  }
+  
+  input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  
+  button , .button {
+    font-size: 20px;
+    border-radius: 4px;
+    color: #ffffff;
+    background-color: rgb(255, 72, 0);
+    border: 0px solid grey;
+    cursor: pointer;
+    padding: 5px;
+    text-decoration: none;
+  }
+  
+  button:hover , .button:hover {
+    background-color: rgb(241, 23, 23);
+  }
+  
+  button:active , .button:active {
+    box-shadow: none;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  
+  footer , .footer {
+    color: #1245df;
+    font-size: 12px;
+  }
+  
+  .small-text {
+    font-size: smaller;
+  }
+
+  .addmorebutton {
+    font-size: 10px;
+    border-radius: 4px;
+    color: #ffffff;
+    background-color: rgb(255, 72, 0);
+    border: 0px solid grey;
+    cursor: pointer;
+    padding: 5px;
+    text-decoration: none;
+  }
+  
+  .addmorebutton:hover  {
+    background-color: rgb(241, 23, 23);
+  }
+  
+  .addmorebutton:active  {
+    box-shadow: none;
+  }
+
+  .option-label{
+      padding-bottom: 8px;
+      color:white;
+  }
+
+  .Remfield{
+      font-size: 16px;
+      background-color: rgb(241, 23, 23);
+  }
+
+  .Remfield:hover{
+    background-color: rgb(255, 72, 0);
+  }
+
+  .poll-item{
+      margin: auto !important;
+      padding : 8px !important;
+      margin-bottom: 8px !important;
+      display:block;
+      width: 90%;
+      /* width: 90% */
+
+  }
+
+  .vote-item{
+    margin: 20px;
+    border: 2px solid skyblue;
+    padding: 12px;
+    /* display: inline-block; */
+    /* width: 98%; */
+    /* max-width: 450px; */
+  }

@@ -1,0 +1,38 @@
+{% extends "layouts/default.html" %}
+
+{% block title %} Create New Poll {% endblock %}
+
+{% block content %}
+
+<div class="main">
+    <header>
+        <h1 class="h1"><a href="#"> Yippee! </a></h1>
+    </header>
+    <div>
+        <p style="color:red"> {{ msg }} </p>
+    </div>
+
+    <div>
+
+        <h1 style="color:orangered"> You Have Completed The Poll! </h1>
+
+    </div>
+
+    <a href="/"> &leftarrow; Return Home </a>
+    <br><br>
+
+    {% include "partials/foot.html" %}
+</div>
+
+
+<!-- <br><br> -->
+
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+
+</script>
+
+{% endblock %}

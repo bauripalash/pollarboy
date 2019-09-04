@@ -1,0 +1,45 @@
+{% extends "layouts/default.html" %}
+
+{% block title %} Result of {{ poll.title }} {% endblock %}
+
+{% block content %}
+
+<div class="main">
+    <header>
+        <h1 class="h1"><a href="#"> {{ poll.title }} </a></h1>
+    </header>
+    <div>
+        <p style="color:red"> {{ msg }} </p>
+    </div>
+
+    <div>
+
+        <h3>Results Here : </h3>
+        <div class="vote-item">
+            <ul>
+                {% for op in poll.options %}
+                <li>{{ op.name }} - {{op.count}} Votes</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+    <a href="/"> &leftarrow; Home </a>
+    <br><br>
+
+    {% include "partials/foot.html" %}
+</div>
+
+
+<!-- <br><br> -->
+
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+
+</script>
+
+{% endblock %}

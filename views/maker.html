@@ -1,0 +1,71 @@
+{% extends "layouts/default.html" %}
+
+{% block title %} Create New Poll {% endblock %}
+
+{% block content %}
+
+<div class="main">
+<header>
+        <h1 class="h1"><a href="/maker"> 📬 Create New Poll </a></h1>
+</header>
+<div>
+    <p style="color:red"> {{ msg }} </p>
+</div>
+
+<div>
+    <form class="createform" method="POST" action="/maker">
+        <input type="text" id="poll-title" name="title" placeholder="Poll Name">
+        <input type="text" id="poll-slug" name="slug" placeholder="Poll Link">
+        <small id="slug-preview" ></small>
+        <div class="option-wrapper">
+            <div class="option-label"><label> Options : </label> <button class="addmorebutton"> Add More + </button></div>
+            <input type="text" id="poll-option" name="polloption" placeholder="Poll Options">
+            <input type="text" id="poll-option" name="polloption" placeholder="Poll Options">
+
+        </div>
+        <input type="submit" class="button" value="Save Poll">
+    </form>
+
+</div>
+
+<a href="/"> &leftarrow; Return Home </a>
+<br><br>
+
+{% include "partials/foot.html" %}
+</div>
+
+
+<!-- <br><br> -->
+
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+document.getElementById("poll-slug").onkeyup = function(){
+    document.getElementById("slug-preview").innerHTML = "Poll link pollarboy.ml/" + document.getElementById("poll-slug").value;
+}
+
+$(document).ready(function() {
+	var max_fields      = 10;
+	var wrapper   		= $(".option-wrapper"); 
+	var add_button      = $(".addmorebutton"); 
+	
+	var x = 1;
+	$(add_button).click(function(e){ 
+		e.preventDefault();
+		if(x < max_fields){ 
+			x++; 
+			$(wrapper).append('<div style="display:inline-block;width:100%"><input style="float: left; width:90%"  type="text" id="poll-option" name="polloption" placeholder="Poll Options"><button style="float: right" class="Remfield">X</button></div>'); //add input box
+		}
+	});
+	
+	$(wrapper).on("click",".Remfield", function(e){ 
+		e.preventDefault(); $(this).parent('div').remove(); x--;
+	})
+});
+
+
+</script>
+
+{% endblock %}
