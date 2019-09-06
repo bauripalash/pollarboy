@@ -7,9 +7,18 @@ const {
 const slugify = require('slugify');
 const db = require("../db.js");
 
-routes.get("/", (req, res) => {
+getrandom = (m) => {
 
-    res.render("maker.html");
+    return Math.random().toString(36).substring(2, m) + Math.random().toString(36).substring(2, m);
+};
+
+
+routes.get("/", (req, res) => {
+    
+    res.render("maker.html", {
+        msg: req.query.err ? req.query.err : ""
+    });
+
 });
 
 routes.post("/", [
@@ -22,8 +31,13 @@ routes.post("/", [
     // console.log(req.body)
     const errors = validationResult(req);
     console.log(req.body, errors);
+    let rawslug = "";
 
-    
+    if (db.get('polls').find({
+            slug: req.body.slug
+        }).value() != undefined) {
+        res.redirect("/maker/?err=" + "Poll Link Already Used. Choose Another");
+    }
 
     // let options = db
     //     .get('polls')
@@ -36,17 +50,24 @@ routes.post("/", [
 
     req.body.polloption.forEach(e => {
         ops.push({
-            slug: slugify(e , {
-                lower : true,
-                remove: /[*+~.()'"!:@]/g
-            }),
+            slug: getrandom(4),
             name: e,
             count: 0
         });
     });
+
+    if (req.body.slug != "") {
+        rawslug = slugify(req.body.slug, {
+            lower: true,
+            remove: /[*+~.()'"!:@\/<>{}%$#^&`]/g
+        });
+    } else {
+        rawslug = getrandom(5);
+    }
+
     db.get('polls')
         .push({
-            slug: req.body.slug,
+            slug: rawslug,
             title: req.body.title,
             total: 0,
             options: ops
@@ -60,8 +81,11 @@ routes.post("/", [
     //         options
     //     })
     //     .write();
-
-    res.redirect("/maker");
+    let info = "Wow! You just created a poll! Share the below link to get some awesome votes!";
+    res.render("createthank.html", {
+        infomsg: info,
+        slug: rawslug
+    });
 });
 
 module.exports = routes;

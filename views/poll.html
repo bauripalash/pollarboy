@@ -10,19 +10,20 @@
     </header>
     <div>
         <p style="color:red"> {{ msg }} </p>
+        <p style="color:green">{{ infomsg }} </p>
     </div>
 
     <div>
 
         <h3>Vote Here : </h3>
         <div class="vote-item">
-                {% for op in poll.options %}
-                <a class="button poll-item" href="/p/{{ poll.slug }}/v/{{ op.slug }}">{{ op.name }}</a>
-                {% endfor %}
+            {% for op in poll.options %}
+            <a class="button poll-item" href="/p/{{ poll.slug }}/v/{{ op.slug }}">{{ op.name }}</a>
+            {% endfor %}
         </div>
 
     </div>
-    <h4> <a href="/p/{{poll.slug}}/result/"> 💥 Result 💥 </a>  </h4>
+    <h4> <a href="/p/{{poll.slug}}/result/"> 💥 Result 💥 </a> </h4>
 
     <a href="/maker"> &leftarrow; Create Poll </a>
     <br><br>

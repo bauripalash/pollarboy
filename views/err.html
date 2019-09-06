@@ -1,0 +1,36 @@
+{% extends "layouts/default.html" %}
+
+{% block title %} Snap!! Error while voting! {% endblock %}
+
+{% block content %}
+
+<div class="main">
+    <header>
+        <h1 class="h1"><a href="#"> Snap! </a></h1>
+    </header>
+    <div>
+        <h3 style="color:red">💥 Oops! Error occured while casting vote! </h3>
+    </div>
+
+
+
+
+    <a href="/maker"> &rightarrow; Create A Poll </a><br>
+    <a href="/"> &leftarrow; Home </a>
+    <br><br>
+
+    {% include "partials/foot.html" %}
+</div>
+
+
+<!-- <br><br> -->
+
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+
+</script>
+
+{% endblock %}

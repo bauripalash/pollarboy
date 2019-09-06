@@ -9,13 +9,13 @@
         <h1 class="h1"><a href="/maker"> 📬 Create New Poll </a></h1>
 </header>
 <div>
-    <p style="color:red"> {{ msg }} </p>
+    <p style="color:red"> {{ msg | escape}} </p>
 </div>
 
 <div>
     <form class="createform" method="POST" action="/maker">
         <input type="text" id="poll-title" name="title" placeholder="Poll Name">
-        <input type="text" id="poll-slug" name="slug" placeholder="Poll Link">
+        <input type="text" id="poll-slug" name="slug" placeholder="Poll Link (optional)">
         <small id="slug-preview" ></small>
         <div class="option-wrapper">
             <div class="option-label"><label> Options : </label> <button class="addmorebutton"> Add More + </button></div>
@@ -43,7 +43,7 @@
 {% block script %}
 <script>
 document.getElementById("poll-slug").onkeyup = function(){
-    document.getElementById("slug-preview").innerHTML = "Poll link pollarboy.ml/" + document.getElementById("poll-slug").value;
+    document.getElementById("slug-preview").innerHTML = "Poll link pollarboy.glitch.me/" + document.getElementById("poll-slug").value;
 }
 
 $(document).ready(function() {

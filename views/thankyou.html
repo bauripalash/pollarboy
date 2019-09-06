@@ -1,6 +1,6 @@
 {% extends "layouts/default.html" %}
 
-{% block title %} Create New Poll {% endblock %}
+{% block title %} You Have Completed The Poll! {% endblock %}
 
 {% block content %}
 
@@ -15,6 +15,8 @@
     <div>
 
         <h1 style="color:orangered"> You Have Completed The Poll! </h1>
+        <hr>
+        <h3> <a href="/p/{{slug | escape}}/result/"> 💥 View Result 💥 </a> </h3>
 
     </div>
 
