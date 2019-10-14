@@ -162,3 +162,24 @@
     /* width: 98%; */
     /* max-width: 450px; */
   }
+.description{
+  	background-color:lightblue;
+  	width:500px;
+  	padding:2px;
+  	margin-left:50px;
+  }
+  .sample-poll-list{
+  	background-color:orange;
+  }
+  #cat{
+  	background-color:lightgrey;
+  	width:400px;
+  	padding:2px;
+  	margin-left:60px;
+  }
+  #boss:hover{
+  	color:green;
+  }
+  #boss:active{
+  	color:black;
+  }
