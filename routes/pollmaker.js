@@ -65,12 +65,18 @@ routes.post("/", [
         rawslug = getrandom(5);
     }
 
+    let MultipleVotes = false;
+    if(req.body.MultipleVotes=='on'){
+        MultipleVotes = true;
+    }
+
     db.get('polls')
         .push({
             slug: rawslug,
             title: req.body.title,
             total: 0,
-            options: ops
+            MultipleVotes: MultipleVotes,
+            options: ops            
         })
         .write();
     // db.get("polls")

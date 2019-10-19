@@ -11,7 +11,7 @@ routes.get("/:slug", (req, res) => {
 
         if (poll != undefined) {
             if (poll) {
-                // console.log(poll);
+                 console.log(poll);
                 let context = {
                     "poll": poll
                 };

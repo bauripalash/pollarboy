@@ -1,0 +1,36 @@
+{% extends "layouts/default.html" %}
+
+{% block title %} You can't vote again {% endblock %}
+
+{% block content %}
+
+<div class="main">
+    <header>
+        <h1 class="h1"><a href="#"> Sorry you have already voted </a></h1>
+    </header>
+    <div>
+        <h3 style="color:red">💥 You can only vote once for this poll. </h3>
+    </div>
+
+
+
+
+    <a href="/maker"> &rightarrow; Create A Poll </a><br>
+    <a href="/"> &leftarrow; Home </a>
+    <br><br>
+
+    {% include "partials/foot.html" %}
+</div>
+
+
+<!-- <br><br> -->
+
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+
+</script>
+
+{% endblock %}

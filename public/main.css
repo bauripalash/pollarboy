@@ -79,6 +79,24 @@
     font-size: 16px;
   }
   
+  .Multiple-Votes {
+    text-align: left;
+    padding-bottom: 15px;
+  }
+
+  .Multiple-Votes label {
+    color: white;
+    font-size: small;
+    font-weight: 500;
+  }
+
+  #checkbox {
+    width: auto;
+    display: inline;
+    margin-bottom: 0px;
+    margin-left: 6px;
+  }
+
   button , .button {
     font-size: 20px;
     border-radius: 4px;
