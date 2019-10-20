@@ -33,13 +33,22 @@
 
 
 <!-- <br><br> -->
-
+<div id="cookieConsent">
+    <div id="closeCookieConsent">x</div>
+    This website is using cookies. <a href="http://www.whatarecookies.com/" target="_blank">More info</a>. <a class="cookieConsentOK">That's Fine</a>
 </div>
 {% endblock %}
 
 {% block script %}
 <script>
-
+$(document).ready(function(){   
+    setTimeout(function () {
+        $("#cookieConsent").fadeIn(200);
+     }, 1500);
+    $("#closeCookieConsent, .cookieConsentOK").click(function() {
+        $("#cookieConsent").fadeOut(200);
+    }); 
+}); 
 </script>
 
 {% endblock %}

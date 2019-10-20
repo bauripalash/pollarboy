@@ -40,6 +40,10 @@ app.get('/err', (req, res) => {
   res.render("err.html");
 });
 
+app.get('/sorry', (req, res) => {
+  res.render("sorry.html");
+});
+
 app.get('/thankyou', (req, res) => {
   res.render("thankyou.html", {
     slug: req.query.id
