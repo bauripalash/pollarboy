@@ -65,9 +65,9 @@ routes.post("/", [
         rawslug = getrandom(5);
     }
 
-    let MultipleVotes = false;
+    let isOnePerOne = true;
     if(req.body.MultipleVotes=='on'){
-        MultipleVotes = true;
+        isOnePerOne = false;
     }
 
     db.get('polls')
@@ -75,7 +75,7 @@ routes.post("/", [
             slug: rawslug,
             title: req.body.title,
             total: 0,
-            MultipleVotes: MultipleVotes,
+            iopo: isOnePerOne,
             options: ops            
         })
         .write();

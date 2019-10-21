@@ -79,12 +79,12 @@
     font-size: 16px;
   }
   
-  .Multiple-Votes {
+  .isOnePerOne-Votes {
     text-align: left;
     padding-bottom: 15px;
   }
 
-  .Multiple-Votes label {
+  .isOnePerOne-Votes label {
     color: white;
     font-size: small;
     font-weight: 500;
@@ -215,7 +215,7 @@
 }
 #cookieConsent a.cookieConsentOK {
   background-color: #F1D600;
-  color: #000;
+  color:black !important;
   display: inline-block;
   border-radius: 5px;
   padding: 0 20px;

@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const nunjucks = require("nunjucks");
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const db = require("./db.js");
 
 // Routes
@@ -22,7 +23,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(bodyParser.json());
-
+app.use(cookieParser())
 db.defaults({
     polllist: [],
     polls: []
@@ -77,6 +78,6 @@ app.use(function (req, res, next) {
 });
 
 // Server
-const listener = app.listen(process.env.PORT, () => {
+const listener = app.listen(process.env.PORT || 3000, () => {
   console.log('POLLARBOY is UP on : ' + listener.address().port);
 });

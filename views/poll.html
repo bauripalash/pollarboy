@@ -14,6 +14,7 @@
     </div>
 
     <div>
+        {% if canvote %}
 
         <h3>Vote Here : </h3>
         <div class="vote-item">
@@ -21,6 +22,11 @@
             <a class="button poll-item" href="/p/{{ poll.slug }}/v/{{ op.slug }}">{{ op.name }}</a>
             {% endfor %}
         </div>
+
+        {% else %}
+        <h3 class="h1"><a href="#"> Sorry you have already voted! </a></h3>
+        <h4 style="color:red">💥 You can only vote once for this poll. </h4>
+        {% endif %}
 
     </div>
     <h4> <a href="/p/{{poll.slug}}/result/"> 💥 Result 💥 </a> </h4>

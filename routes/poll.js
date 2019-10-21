@@ -12,11 +12,15 @@ routes.get("/:slug", (req, res) => {
 
         if (poll != undefined) {
             if (poll) {
-                 console.log(poll);
-                let context = {
-                    "poll": poll
-                };
-                res.render("poll.html", context);
+                // console.log(poll);
+
+                if (canVote(req, id)) {
+                    res.render("poll.html", { "poll": poll, "canvote": true });
+                    // console.log("CAN");
+                } else {
+                    res.render("poll.html", { "poll": poll});
+                    // console.log("CANT")
+                }
 
             }
         } else {
@@ -26,41 +30,45 @@ routes.get("/:slug", (req, res) => {
     }
 });
 
+let canVote = (req, poll) => {
+    let iopo = isOnePerOne(req, poll);
+    // console.log(iopo)
+    let cookie = hasCookie(req.cookies, poll);
+    // console.log(cookie)
 
-//Checks for poll name in the cookie
-function getCookie(cookie,cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
-
-  //Checks if the person can vote again or not and redirects accordingly
-  function MultipleVotes(req,res,pollid,itemid){
-    if(db.get("polls").find({
-        slug: pollid
-    }).get("MultipleVotes")
-    .value() == true ){
-        if(getCookie(req.headers.cookie,pollid)){
-            res.redirect("/sorry");
-            return false;
-        }else{
-            res.cookie(pollid, itemid);
-            return true;
-        }
-    }else{
+    if (iopo && cookie) {
+        return false;
+    } else {
         return true;
     }
-  }
+}
+
+//Checks for poll name in the cookie
+let hasCookie = (cookies, poll) => {
+    if (cookies[poll] == 1) {
+        return true;
+    } else {
+        return false;
+    }
+
+
+}
+
+//Checks if the person can vote again or not and redirects accordingly
+
+let isOnePerOne = (req, pollid) => {
+    if (db.get("polls").find({
+            slug: pollid
+        }).get("iopo") //checks if is One Vote Per One Device
+        .value() == 1) {
+
+        return true
+
+    } else {
+        return false;
+    }
+}
+
 
 routes.get("/:slug/v/:item", (req, res) => {
     let pollid = req.params.slug;
@@ -73,20 +81,20 @@ routes.get("/:slug/v/:item", (req, res) => {
             }).value() != undefined) {
 
             //Checks if the person can vote again or not
-           if( MultipleVotes(req,res,pollid,itemid)){
+            // if( MultipleVotes(req,res,pollid,itemid)){
             db.get("polls").find({
                 slug: pollid
             }).get("options").find({
                 slug: itemid
             }).update('count', n => n + 1).write();
-        }
+            // }
         } else {
             res.redirect("/err");
         }
 
         // console.log(poll);
         // console.log("UP2");
-        res.redirect("/thankyou/?id=" + pollid);
+        res.cookie(pollid, 1, { expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), httpOnly: false }).redirect("/thankyou/?id=" + pollid);
 
 
 
