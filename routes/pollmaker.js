@@ -65,12 +65,18 @@ routes.post("/", [
         rawslug = getrandom(5);
     }
 
+    let isOnePerOne = true;
+    if(req.body.isOnePerOne=='on'){
+        isOnePerOne = false;
+    }
+
     db.get('polls')
         .push({
             slug: rawslug,
             title: req.body.title,
             total: 0,
-            options: ops
+            iopo: isOnePerOne,
+            options: ops            
         })
         .write();
     // db.get("polls")
