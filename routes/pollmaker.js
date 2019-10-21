@@ -66,7 +66,7 @@ routes.post("/", [
     }
 
     let isOnePerOne = true;
-    if(req.body.MultipleVotes=='on'){
+    if(req.body.isOnePerOne=='on'){
         isOnePerOne = false;
     }
 
