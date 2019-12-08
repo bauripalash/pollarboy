@@ -82,11 +82,16 @@ routes.get("/:slug/v/:item", (req, res) => {
 
             //Checks if the person can vote again or not
             // if( MultipleVotes(req,res,pollid,itemid)){
+          if(canVote(req , pollid)){
             db.get("polls").find({
                 slug: pollid
             }).get("options").find({
                 slug: itemid
             }).update('count', n => n + 1).write();
+          }else{
+            res.redirect("/sorry");
+          }
+            
             // }
         } else {
             res.redirect("/err");
